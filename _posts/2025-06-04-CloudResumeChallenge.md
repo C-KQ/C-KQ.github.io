@@ -31,14 +31,14 @@ With CSS, I was able to almost fully replicate my actual resume. Below are some 
 - Used PowerPoint's color picker to color match the orignal document colours & used its HEX values when applying the background & line colours.
   
 ![image](assets/img/projects/ResumeChallenge/3_CSS.png)
-<img width="500" height="700" alt="screenshot of resume using HTML & CSS" src="https://github.com/user-attachments/assets/57a416da-8ad7-4cdc-b261-2ec19c3db578">  
+
 
 ## 4. Static Website
 >Your HTML resume should be deployed online as an Amazon S3 static website.
 
 Below are the steps I have taken to host a static website on S3.  
 1. Upload the HTML and CSS files to S3.
-<img width="800" height="300" alt="Screenshot of files uploaded" src="https://github.com/user-attachments/assets/bb9ab80b-9a5f-4221-9a90-31a8206fafb4">  
+
   
 2. Under Properties, enable static web hosting in S3 and specify the default index document. 
 <img width="800" height="300" alt="screenshot of enablement of static web hosting on S3" src="https://github.com/user-attachments/assets/d754d1ca-c66a-4991-ae34-ca6e4ca901e6">  
