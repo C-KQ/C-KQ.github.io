@@ -30,6 +30,7 @@ With CSS, I was able to almost fully replicate my actual resume. Below are some 
 - Used inline-block & border-box together with text-align to display the tables.
 - Used PowerPoint's color picker to color match the orignal document colours & used its HEX values when applying the background & line colours.
   
+![image](assets/img/projects/ResumeChallenge/3_CSS.png)
 <img width="500" height="700" alt="screenshot of resume using HTML & CSS" src="https://github.com/user-attachments/assets/57a416da-8ad7-4cdc-b261-2ec19c3db578">  
 
 ## 4. Static Website
