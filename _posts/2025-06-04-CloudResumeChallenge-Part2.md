@@ -1,5 +1,5 @@
 ---
-title: "Project 1: Cloud Resume Challenge"
+title: "Project 1: Cloud Resume Challenge Part 2"
 date: 2025-06-05
 categories: [Cloud Projects]
 tags: [AWS]
