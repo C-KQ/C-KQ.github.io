@@ -6,7 +6,7 @@ tags: [AWS]
 ---
 
 
-See Part 1 Here...
+Go back to [Part 1](https://c-kq.github.io/posts/CloudResumeChallenge-Part1/)...
 
 
 ## 6. DNS  
