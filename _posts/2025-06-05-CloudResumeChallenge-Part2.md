@@ -39,7 +39,7 @@ After a few minutes, the status should change from **Pending validation** to **I
 7. Under **Alternate domain name (CNAME) - optional**, click _Add Item_ and type in your subdomain to be redirected to your distribution.  
 8. Under **Default root object - optional** enter _index.html_. So that when viewers access the root URL, it will automatically view index.html.  
 >**Learning Point**  
-I realised I should have done step 8 in the [HTTPS](#5-https) segment so that I did not need to append 'index.html' in the link.
+I realised I should have done step 8 in the HTTPS segment so that I did not need to append 'index.html' in the link.
 
 ![image](assets/img/projects/ResumeChallenge/6_DNS_7_Update Alternative Domain Name & Default Root Object.png)
   
