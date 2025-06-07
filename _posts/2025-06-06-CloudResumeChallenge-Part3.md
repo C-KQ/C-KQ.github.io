@@ -1,6 +1,6 @@
 ---
 title: "Project 1: Cloud Resume Challenge Part 3"
-date: 2025-06-06
+date: 2025-06-07
 categories: [Cloud Projects]
 tags: [AWS]
 ---
