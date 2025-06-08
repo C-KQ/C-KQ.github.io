@@ -2,7 +2,7 @@
 title: "Project 1: Cloud Resume Challenge Part 1"
 date: 2025-06-04
 categories: [Cloud Projects]
-tags: [AWS]
+tags: [Cloud Resume Challenge - AWS]
 ---
 
 # Cloud Resume Challenge  
@@ -107,8 +107,8 @@ Issue was fixed as I realised I needed to add ckq132.click in CloudFront **Alter
 ![image](personalAssets/Images/Projects/ResumeChallenge/6_DNS_Learning Point_403 Error.png)
   
 ![image](personalAssets/Images/Projects/ResumeChallenge/6_DNS_Learning Point_Add Alternative Domain Name.png)
-
-
+  
+  
 Continue to [Part 2](https://c-kq.github.io/posts/CloudResumeChallenge-Part2/)...
 
 
