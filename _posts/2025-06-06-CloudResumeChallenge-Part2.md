@@ -19,13 +19,13 @@ Next up, we have to update the table dynamically using Lambda. I created a funct
 ![image](personalAssets/Images/Projects/ResumeChallenge/7_3_Lambda Function.png)
   
 To have the Lambda function work with our HTML page. I used API Gateway to be the connector between the JavaScript and the Lambda function. You can either _Add trigger_ directly from the Lambda function page or create the API from API Gateway and link it.  
-![image](personalAssets/Images/Projects/ResumeChallenge/7_4_API Gateway Configurations)
+![image](personalAssets/Images/Projects/ResumeChallenge/7_4_API Gateway Configurations.png)
   
 >**Learning Point**
 After implementing the API & calling it via my website, it still wasn't working. I checked the console and realised there was an 403 error. It was **blocked by CORS Policy**. For remediation, I enabled the CORS policy for my website only in API Gateway to get it working.  
 
 ![image](personalAssets/Images/Projects/ResumeChallenge/7_5_LearningPoint_CORS.png)
-![image](personalAssets/Images/Projects/ResumeChallenge/7_5_LearningPoint_CORSEnabled)
+![image](personalAssets/Images/Projects/ResumeChallenge/7_5_LearningPoint_CORSEnabled.png)
   
 Additionally, since my website only needed to retrive data from the Lambda function, I changed the API to only alloww GET from numViews.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/7_6_APIGateway_Getonly.png)
