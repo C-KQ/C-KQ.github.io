@@ -4,7 +4,7 @@ date: 2025-06-07
 categories: [Cloud Projects]
 tags: [Cloud Resume Challenge - AWS]
 ---
-Continue to [Part 1](https://c-kq.github.io/posts/CloudResumeChallenge-Part1/)...
+Go back to [Part 1](https://c-kq.github.io/posts/CloudResumeChallenge-Part1/)...
    
   
 ## Dynamic Website - Page Views Counter
@@ -22,15 +22,15 @@ To have the Lambda function work with our HTML page. I used API Gateway to be th
 ![image](personalAssets/Images/Projects/ResumeChallenge/7_4_API Gateway Configurations.png)
   
 >**Learning Point**
-After implementing the API & calling it via my website, it still wasn't working. I checked the console and realised there was an 403 error. It was **blocked by CORS Policy**. For remediation, I enabled the CORS policy for my website only in API Gateway to get it working.  
+After implementing the API & calling it via my website, it still wasn't working. I checked the console and realised there was an 403 error. It was **blocked by CORS Policy**. For remediation, I enabled the CORS policy for my website **only** in API Gateway to get it working.  
 
 ![image](personalAssets/Images/Projects/ResumeChallenge/7_5_LearningPoint_CORS.png)
 ![image](personalAssets/Images/Projects/ResumeChallenge/7_5_LearningPoint_CORSEnabled.png)
   
-Additionally, since my website only needed to retrive data from the Lambda function, I changed the API to only alloww GET from numViews.  
+Additionally, since my website only needed to retrive data from the Lambda function, I changed the API to only allow GET from numViews.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/7_6_APIGateway_Getonly.png)
   
-Lastly, I edit the JavaScript to call and fetch the data from the Lambda function, and dynamincally change the values of _pageViews_ according to the data retrieved.  
+Lastly, I edit the JavaScript to call and fetch the data from the Lambda function, and dynamincally change the values of ID _views_ according to the data retrieved.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/7_7_JavascriptUpdate.png)
   
 With that, the **View Counter** is complete.  
