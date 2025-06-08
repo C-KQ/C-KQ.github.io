@@ -7,7 +7,7 @@ tags: [Cloud Resume Challenge - AWS]
 Continue to [Part 1](https://c-kq.github.io/posts/CloudResumeChallenge-Part1/)...
    
   
-## Dynamic Website - Page View Counter
+## Dynamic Website - Page Views Counter
 So far, we have used S3, CloudFront, Route53 & ACM to host a secure webpage. Next up, we are going to use JavaScript, DynamoDB and Lambda with API Gateway to implement a dynamic page view counter.  
 I first create a simple HTML element for the JavaScript to work with.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/7_1_JavaScript_PageViews.png)
