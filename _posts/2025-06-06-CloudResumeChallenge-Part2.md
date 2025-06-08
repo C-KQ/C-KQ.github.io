@@ -4,7 +4,7 @@ date: 2025-06-07
 categories: [Cloud Projects]
 tags: [Cloud Resume Challenge - AWS]
 ---
-Continue to [Part 1](https://c-kq.github.io/posts/CloudResumeChallenge-Part1/)...
+Go back to [Part 1](https://c-kq.github.io/posts/CloudResumeChallenge-Part1/)...
    
   
 ## Dynamic Website - Page View Counter
