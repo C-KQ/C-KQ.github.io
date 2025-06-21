@@ -110,32 +110,3 @@ Issue was fixed as I realised I needed to add ckq132.click in CloudFront **Alter
   
   
 Continue to [Part 2](https://c-kq.github.io/posts/CloudResumeChallenge-Part2/)...
-
-
-<!--
-4. Leave the rest as default values, scroll down and click _Create Distribution_.  
-5. Copy the S3 bucket policy, and return to the S3 bucket where your website is hosted.  
-![image](personalAssets/Images/Projects/ResumeChallenge/5_HTTPS_6_Copy Bucket Policy.png)
-  
-6. Go to Permissions > Bucket Policy and click _Edit_  
-![image](personalAssets/Images/Projects/ResumeChallenge/5_HTTPS_7_Edit Bucket Policy.png)
-  
-7. Replace the current policy with the copied policy. Then click _Save Changes_.  
-![image](personalAssets/Images/Projects/ResumeChallenge/5_HTTPS_8_Replace Policy.png)
-  
-8. Test if you are able access directly to S3 Origin. It should fail.  
-![image](personalAssets/Images/Projects/ResumeChallenge/5_HTTPS_9_Check S3 Origin Direct Access.png)
-  
-9. For security hygiene purposes, go back to the S3 bucket, and revert back step 2 & 3 under [Static Website](#4-static-website) as we do not need the public access anymore.  
-![image](personalAssets/Images/Projects/ResumeChallenge/5_HTTPS_10_Revert Block Public Access.png)
-  
-![image](personalAssets/Images/Projects/ResumeChallenge/5_HTTPS_10_Revert Static Web Hosting.png)
-  
-10. Lastly, access the static webpage by going to the CloudFront Distribution > General > Under Details, copy the Distribution domain name.
-![image](personalAssets/Images/Projects/ResumeChallenge/5_HTTPS_11_CloudFront Distribution Link.png)
-  
-12. Enter the URL you copied, change to _http_ & add '_/index.html_' to the back.
-    In this instance, it is: http://dgiybnjyd4or4.cloudfront.net/index.html.  
-    Check that it should redirect you back to HTTPS. Check the cert if it is valid.  
-![image](personalAssets/Images/Projects/ResumeChallenge/5_HTTPS_12_Static Page via CloudFront.png)
--->
