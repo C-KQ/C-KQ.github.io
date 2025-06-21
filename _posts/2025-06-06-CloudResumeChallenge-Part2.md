@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/725c8b35-7d08-4642-8da4-b5619816af6e)---
+---
 title: "Project 1: Cloud Resume Challenge Part 2"
 date: 2025-06-07
 categories: [Cloud Projects]
@@ -62,6 +62,7 @@ Additionally with IAAC, we could not have the convenience that AWS provides us i
 ![image](personalAssets/Images/Projects/ResumeChallenge/12_5_IAAC_OAC&APIGateway.png)  
   
 
+Continue to [Part 3](https://c-kq.github.io/posts/CloudResumeChallenge-Part3/)...
 
 
 
