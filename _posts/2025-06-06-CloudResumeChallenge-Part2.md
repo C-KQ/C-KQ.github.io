@@ -4,8 +4,8 @@ date: 2025-06-07
 categories: [Cloud Projects]
 tags: [Cloud Resume Challenge - AWS]
 ---
-Go back to [Part 1](https://c-kq.github.io/posts/CloudResumeChallenge-Part1/)...
-   
+Go back to [Part 1](https://c-kq.github.io/posts/CloudResumeChallenge-Part1/)...  
+  
   
 ## Dynamic Website - Page Views Counter
 Having successfully deployed a secure webpage using **S3, CloudFront, Route 53, and ACM**, the next phase involves implementing a dynamic page view counter. This will be achieved by integrating **JavaScript, DynamoDB, Lambda, and API Gateway**.  
