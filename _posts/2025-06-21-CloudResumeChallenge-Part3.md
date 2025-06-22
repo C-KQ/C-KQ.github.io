@@ -46,7 +46,7 @@ Lastly, I created a simple pytest to test if...
 This is done by combining pytest with moto (for generating a fake AWS environment).  
 ![image](personalAssets/Images/Projects/ResumeChallenge/14_8_CICD_Pytest.png)  
   
-Next, I deployed the test file into GitHub and run a GitHub Action to install the dependencies and run the test. Once it was successful, I deployed it to run on a workflow_call, allowing my Terraform Apply to only run after this test passed.  
+Next, I deployed the test file into GitHub and run a GitHub Action to install the dependencies and run the test. Once it was successful, I deployed the GitHub Action to run on a **workflow_call**, allowing '**Terraform Apply**' to only run after this test has passed.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/14_9_CICD_PytestGithubActions.png)  
   
 ![image](personalAssets/Images/Projects/ResumeChallenge/14_10_CICD_WorkflowPass.png)
@@ -54,8 +54,15 @@ Next, I deployed the test file into GitHub and run a GitHub Action to install th
 ![image](personalAssets/Images/Projects/ResumeChallenge/14_11_CICD_WorkflowFail.png)  
   
 >**Learning Point 1**  
-While looking through resources, I learnt that testing involves multiple tries across different versions and OS. Hence, a _matrix_ is required to run the test. One thing I missed out while testing was the runtime cost in GitHub. With the use of matrix, each run is multiplied by the number of versions, OS and more if there are other variables. I initially added macOS to the testing. As macOS has a minute multiplier of 10x, this immediately exceed my free tier for the month ☠☠. 
+While looking through resources, I learnt that testing involves multiple sessions across different versions and OS. Hence, a _matrix_ is required to run the test. One thing I missed out while testing was the runtime cost in GitHub. With the use of matrix, each run is multiplied by the number of versions, OS and more if there are other variables. I initially added macOS to the testing. As [macOS has a minute multiplier of 10x](https://docs.github.com/en/billing/managing-billing-for-your-products/about-billing-for-github-actions#minute-multipliers), this immediately exceed my free tier for the month after a few runs ☠☠.
+  
+>**Learning Point 2**  
+Calling a workflow from the same repository is possible through the use of **workflow_call**. However, credentials need to be inherited or an error will be prompted. As such, the caller needs to use the **secrets: inherit** attribute to run the workflow.  
 
+![image](personalAssets/Images/Projects/ResumeChallenge/14_12_CICD_WorkflowCall.png)
+  
+  
+## Conclusion  
 
 
 
