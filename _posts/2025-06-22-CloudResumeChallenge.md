@@ -9,7 +9,7 @@ tags: [Cloud Resume Challenge]
 Like many others, I've chosen the Cloud Resume Challenge as my initial project. Below, you'll find the documentation outlining my progress and learnings. The full challenge requirements are available [here](https://cloudresumechallenge.dev/docs/the-challenge/aws/).  
   
   
-## Stage 1: Building a Static Website
+## Stage 1: Building a Static Website 
 To create the static resume page, I primarily used HTML containers (divs) and CSS to replicate the layout of my original resume as closely as possible. I employed several CSS techniques to achieve near-perfect formatting and color matching:  
 - I used **percentage units for width and <ins>margin: auto</ins>** to ensure the page is responsive and displays well across different browser sizes.
 - I selected **<ins>font-family</ins> and <ins>font-weight</ins>** to closely match the typography of my original document.
