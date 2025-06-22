@@ -47,16 +47,16 @@ To secure the website with HTTPS, I implemented Amazon CloudFront in conjunction
 ### AWS Certificate Manager (ACM) 
 The first step was to create a public SSL certificate using AWS Certificate Manager (ACM). It's crucial to ensure you're in the N. Virginia (us-east-1) region when doing this.
   
-1. Head over to AWS Certificate Manager (ACM) & _Request a certificate_.  
+1. Head over to AWS Certificate Manager (ACM) & **Request a certificate**.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/6_DNS_1_ACM Request Cert.png)
   
-2. Ensure _Request a public certificate_ is selected, then click Next.  
+2. Ensure **Request a public certificate** is selected, then click Next.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/6_DNS_2_Public Cert.png)
   
-3. Under the Fully qualified domain name, enter the domain name which you wished to be qualified. In my case, I selected ckq123.click and *.ckq123.click (for future use (e.g., www)). Click _Request_ once you are done.   
+3. Under the Fully qualified domain name, enter the domain name which you wished to be qualified. In my case, I selected _ckq123.click_ and _*.ckq123.click_ (for future use (e.g., www)). Click **Request** once you are done.   
 ![image](personalAssets/Images/Projects/ResumeChallenge/6_DNS_3_Public Cert Settings.png)
 
-4. As my domain is hosted in Route 53, I will create the CNAME records directly by clicking _Create records in Route 53_ for validation. Followed by _Create Records_.  
+4. As my domain is hosted in Route 53, I will create the CNAME records directly by clicking **Create records in Route 53** for validation. Followed by **Create Records**.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/6_DNS_4_Create Records in Route53.png)
     
 ![image](personalAssets/Images/Projects/ResumeChallenge/6_DNS_4_Create Records.png)  
@@ -71,21 +71,21 @@ As we are using CloudFront to host the static website, head over to CloudFront t
 
 ![image](personalAssets/Images/Projects/ResumeChallenge/5_HTTPS_2_OAC.png)
   
-2. Under Default cache behavior > Viewer protocol policy, select _Redirect HTTP to HTTPS_.  
+2. Under Default cache behavior > Viewer protocol policy, select **Redirect HTTP to HTTPS**.  
 >+ Force viewers to use HTTPS only.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/5_HTTPS_3_Redirect HTTP to HTTPS.png)
    
 3. Under Custom SSL certificate - optional, select your custom SSL certificate.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/6_DNS_6_Update SSL Cert.png)
   
-4. Under **Alternate domain name (CNAME) - optional**, click _Add Item_ and type in your subdomain to be redirected to your distribution.  
+4. Under **Alternate domain name (CNAME) - optional**, click **Add Item** and type in your subdomain to be redirected to your distribution.  
 5. Under **Default root object - optional** enter _index.html_. So that when viewers access the root URL, it will automatically view index.html.
 >**Learning Point**  
 I missed this step, causing some issues when accessing the URL later.
   
 ![image](personalAssets/Images/Projects/ResumeChallenge/6_DNS_7_Update Alternative Domain Name & Default Root Object.png)
   
-9. Go to Route 53 > Hosted Zones > Click on your domain > Click _Create Record_  
+9. Go to Route 53 > Hosted Zones > Click on your domain > Click **Create Record**  
 ![image](personalAssets/Images/Projects/ResumeChallenge/6_DNS_9_Create Hosted Zone Record.png)
   
 10. Create 2 records via simple routing to your cloudfront distribution.  
