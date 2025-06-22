@@ -6,51 +6,48 @@ tags: [Cloud Resume Challenge - AWS]
 ---
 
 # Cloud Resume Challenge  
-Hello, I have chosen the 'Cloud Resume Challenge' as my first project (like many others too). Below is the documentation of what I have done and learnt...  
-Full requirements of the challenge can be found [here](https://cloudresumechallenge.dev/docs/the-challenge/aws/).
+Like many others, I've chosen the Cloud Resume Challenge as my initial project. Below, you'll find the documentation outlining my progress and learnings. The full challenge requirements are available [here](https://cloudresumechallenge.dev/docs/the-challenge/aws/).  
   
   
-## Stage 1: Creating a Static Website
-For the static page, I have used containers(div) and CSS to make the page format as close as possible to the structure of my original resume. I have used the following functions to get the format & color to near perfect:
-- Used % for the width & margin:auto so that the page can still be viewed nicely at different browser sizes.
-- Used font-family & font-weight to match as close to original document as possible.
-- Used margin and padding to adjust any 'awkward' spacing.
-- Used inline-block & border-box together with text-align to display the tables.
-- Used PowerPoint's color picker to color match the orignal document colours & used its HEX values when applying the background & line colours.
+## Stage 1: Building a Static Website
+To create the static resume page, I primarily used HTML containers (divs) and CSS to replicate the layout of my original resume as closely as possible. I employed several CSS techniques to achieve near-perfect formatting and color matching:  
+- I used **percentage units for width and <ins>margin: auto</ins>** to ensure the page is responsive and displays well across different browser sizes.
+- I selected **<ins>font-family</ins> and <ins>font-weight</ins>** to closely match the typography of my original document.
+- I fine-tuned spacing using **<ins>margin</ins> and <ins>padding</ins>** to eliminate any 'awkward' gaps.
+- For table displays, I combined **<ins>inline-block</ins> with <ins>border-box</ins> and <ins>text-align</ins>**..
+- To match the original document's colors accurately, I used **PowerPoint's color picker** and applied the resulting **HEX values** for background and line colors.
   
 ![image](personalAssets/Images/Projects/ResumeChallenge/3_CSS.png)
-  
   
 Next, I have used S3 to store all the HTML, CSS & JavaScript(later) files.  
 For a temporary solution, I enabled static website hosting on S3 to check if all is running well. The steps for static hosting for S3 are listed below...
   
-1. Under Properties, enable static web hosting in S3 and specify the default index document. 
+1. **Enable Static Web Hosting**: Under the S3 bucket's properties, I enabled static web hosting and specified the default index document.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/4_Static_2_Static Web Hosting.png)
   
-2. Under Permissions, unblock public access.  
+2. **Unblock Public Access**: In the Permissions section, I unblocked all public access to the bucket.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/4_Static_3_Unblock Public Access.png)  
   
-3. Under Permissions, set the bucket policy (remembering to change the ARN)  
-   Reference link for bucket policy: [Public Bucket Policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/HostingWebsiteOnS3Setup.html#step4-add-bucket-policy-make-content-public)  
-![image](personalAssets/Images/Projects/ResumeChallenge/4_Static_4_Bucket Policy.png)   
+3. **Set Bucket Policy**: I then configured the bucket policy to grant public read access, referencing the [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/HostingWebsiteOnS3Setup.html#step4-add-bucket-policy-make-content-public) for the appropriate policy structure (remembering to update the ARN).  
+![image](personalAssets/Images/Projects/ResumeChallenge/4_Static_4_Bucket Policy.png)  
   
-4. Finally, access the static website by scrolling down under properties to get the bucket website endpoint.
+4. **Access Website**: Finally, I retrieved the bucket website endpoint from the properties section to access the hosted static website.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/4_Static_5_S3 Static Web Link.png) 
-
-
-## Stage 2: Securing the Website (HTTPS)  
-_*Side note: I will be using my own domain that I have previously created on AWS._  
   
-For this segment I have used Amazon CloudFront together with AWS Certificate Manager (for public SSL certificate). CloudFront provide some advantages such as...  
+  
+## Stage 2: Securing the Website with HTTPS
+_(Note: I'm using an existing domain registered on AWS for this step.)_  
+  
+To secure the website with HTTPS, I implemented Amazon CloudFront in conjunction with AWS Certificate Manager (ACM) for a public SSL certificate. CloudFront offers several benefits for this setup:  
 + Deliver the content closer to the viewers, enabling faster load time.
 + Force viewers to use HTTPS only.
-+ Only allowing viewers to access the content via CloudFront. Hence, disallowing direct access to the origin - in this case, it will be S3.
++ It restricts direct access to the S3 origin via Origin Access Control(OAC), allowing content to be served exclusively through CloudFront for better security.
   
   
 ### AWS Certificate Manager (ACM) 
-Firstly, we need to create our own public SSL certificate.   
+The first step was to create a public SSL certificate using AWS Certificate Manager (ACM). It's crucial to ensure you're in the N. Virginia (us-east-1) region when doing this.
   
-1. Head over to AWS Certificate Manager (ACM), ensure you are in N.Virginia (us-east-1) & _Request a certificate_.  
+1. Head over to AWS Certificate Manager (ACM) & _Request a certificate_.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/6_DNS_1_ACM Request Cert.png)
   
 2. Ensure _Request a public certificate_ is selected, then click Next.  
@@ -62,7 +59,7 @@ Firstly, we need to create our own public SSL certificate.
 4. As my domain is hosted in Route 53, I will create the CNAME records directly by clicking _Create records in Route 53_ for validation. Followed by _Create Records_.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/6_DNS_4_Create Records in Route53.png)
     
-![image](personalAssets/Images/Projects/ResumeChallenge/6_DNS_4_Create Records.png) 
+![image](personalAssets/Images/Projects/ResumeChallenge/6_DNS_4_Create Records.png)  
 After a few minutes, the status should change from **Pending validation** to **Issued**. Your SSL cert is created.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/6_DNS_4_Public Cert Issued.png)
   
@@ -70,7 +67,7 @@ After a few minutes, the status should change from **Pending validation** to **I
 ### Amazon CloudFront  
 As we are using CloudFront to host the static website, head over to CloudFront to create a distribution and set the origin to the S3 bucket (**NOT WEBSITE ENDPOINT**) that we previously used. There are a few options we need to edit while creating the distribution. They are...  
 1. Under Origin access, choose _Origin access control settings (recommended)_. Then, _Create New OAC_. This step is to disallow direct access to the S3 origin.  
->+ Only allowing viewers to access the content via CloudFront. Hence, disallowing direct access to the origin - in this case, it will be S3.  
++ It restricts direct access to the S3 origin via Origin Access Control(OAC), allowing content to be served exclusively through CloudFront for better security.  
 
 ![image](personalAssets/Images/Projects/ResumeChallenge/5_HTTPS_2_OAC.png)
   
