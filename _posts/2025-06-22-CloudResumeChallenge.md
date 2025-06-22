@@ -19,8 +19,7 @@ To create the static resume page, I primarily used HTML containers (divs) and CS
   
 ![image](personalAssets/Images/Projects/ResumeChallenge/3_CSS.png)
   
-Next, I have used S3 to store all the HTML, CSS & JavaScript(later) files.  
-For a temporary solution, I enabled static website hosting on S3 to check if all is running well. The steps for static hosting for S3 are listed below...
+Next, I have used S3 to store all the HTML, CSS & JavaScript(later) files. For a temporary solution, I enabled static website hosting on S3 to check if all is running well. The steps for static hosting for S3 are listed below...
   
 1. **Enable Static Web Hosting**: Under the S3 bucket's properties, I enabled static web hosting and specified the default index document.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/4_Static_2_Static Web Hosting.png)
@@ -67,12 +66,13 @@ After a few minutes, the status should change from **Pending validation** to **I
 ### Amazon CloudFront  
 As we are using CloudFront to host the static website, head over to CloudFront to create a distribution and set the origin to the S3 bucket (**NOT WEBSITE ENDPOINT**) that we previously used. There are a few options we need to edit while creating the distribution. They are...  
 1. Under Origin access, choose _Origin access control settings (recommended)_. Then, _Create New OAC_. This step is to disallow direct access to the S3 origin.  
-+ It restricts direct access to the S3 origin via Origin Access Control(OAC), allowing content to be served exclusively through CloudFront for better security.  
+>+ It restricts direct access to the S3 origin via Origin Access Control(OAC), allowing content to be served exclusively through CloudFront for better security.  
 
 ![image](personalAssets/Images/Projects/ResumeChallenge/5_HTTPS_2_OAC.png)
   
 2. Under Default cache behavior > Viewer protocol policy, select **Redirect HTTP to HTTPS**.  
 >+ Force viewers to use HTTPS only.  
+
 ![image](personalAssets/Images/Projects/ResumeChallenge/5_HTTPS_3_Redirect HTTP to HTTPS.png)
    
 3. Under Custom SSL certificate - optional, select your custom SSL certificate.  
@@ -120,7 +120,7 @@ Next up, we have to update the table dynamically using Lambda. I created a funct
 To have the Lambda function work with our HTML page. I used API Gateway to be the connector between the JavaScript and the Lambda function. You can either **Add trigger** directly from the Lambda function page or create the API from API Gateway and link it.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/7_4_API Gateway Configurations.png)
   
->**Learning Point**
+>**Learning Point**  
 After implementing the API & calling it via my website, it still wasn't working. I checked the console and realised there was an 403 error. It was **blocked by CORS Policy**. For remediation, I enabled the CORS policy for my website **only** in API Gateway to get it working.  
 
 ![image](personalAssets/Images/Projects/ResumeChallenge/7_5_LearningPoint_CORS.png)
@@ -200,8 +200,7 @@ The next requirement was to automate updates: any changes made to the static web
 ![image](personalAssets/Images/Projects/ResumeChallenge/14_6_CICD_RespositoryDispatch.png)  
   
 >**Learning Point**  
-Although the repository_dispatch trigger was functional, the static website files weren't actually updating in S3. From Terraform's perspective, no changes were detected because the filenames remained the same (e.g., index.html).  
-  
+Although the repository_dispatch trigger was functional, the static website files weren't actually updating in S3. From Terraform's perspective, no changes were detected because the filenames remained the same (e.g., index.html).    
 To resolve this, I introduced the source_hash attribute to the file upload process in Terraform. This attribute ensures that **every update to a file results in a different hash value**. By providing this unique hash, Terraform now correctly identifies changes in the file's content, even if the filename is identical, and thus triggers the necessary update in S3.  
   
 ![image](personalAssets/Images/Projects/ResumeChallenge/14_7_CICD_S3SourceHash.png)  
@@ -213,7 +212,7 @@ Finally, I implemented automated testing using **pytest** combined with **moto**
   
 ![image](personalAssets/Images/Projects/ResumeChallenge/14_8_CICD_Pytest.png)  
   
-After developing the test file, I deployed it to GitHub. I then configured a GitHub Action to install the necessary dependencies and execute these tests. Once this test workflow successfully passes, it triggers the "Terraform Apply" workflow using a **workflow_call** coupled with the **needs** attribute. This ensures that the infrastructure deployment (Terraform Apply) only proceeds after the tests have passed.  
+After developing the test file, I deployed it to GitHub. I then configured a GitHub Action to install the necessary dependencies and execute these tests. Once this test workflow successfully passes, it triggers the "Terraform Apply" workflow using a **workflow_call** coupled with the **needs** attribute. This ensures that the infrastructure deployment (Terraform Apply) **only proceeds after the tests have passed**.  
 ![image](personalAssets/Images/Projects/ResumeChallenge/14_9_CICD_PytestGithubActions.png)  
   
 ![image](personalAssets/Images/Projects/ResumeChallenge/14_10_CICD_WorkflowPass.png)  
@@ -231,5 +230,6 @@ Another important discovery regarding GitHub Actions was that while calling a wo
   
 ## Conclusion  
 Completing the Cloud Resume Challenge proved to be an invaluable capstone. Solidifying my journey from theoretical understanding to practical application in cloud engineering. This project not only allowed me to meticulously build a secure static website by leveraging core AWS services like **S3, CloudFront, Route 53, ACM, DynamoDB, Lambda, and API Gateway**, but it also served as a playground for applying and expanding upon the technical knowledge acquired through my AWS - SAA certification.  
+  
 Crucially, the hands-on implementation of **Infrastructure as Code (IaC)** with **Terraform** and the development of a **CI/CD pipeline** using **GitHub Actions** were transformative. These aspects pushed me beyond theoretical concepts as by doing lots of research and countless trial-and-error, it enabled me to be exposed to essential new skills in infrastructure automation & secure deployment practices for cloud resources, practical troubleshooting and critical lessons in cost optimization and dependency management. The Cloud Resume Challenge has, therefore, not just been a project completion, but a comprehensive training ground that has equipped me with real-world ready skill set for a career in cloud engineering.
 
