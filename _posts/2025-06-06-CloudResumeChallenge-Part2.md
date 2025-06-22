@@ -61,7 +61,18 @@ Additionally with IAAC, we could not have the convenience that AWS provides us i
 
 ![image](personalAssets/Images/Projects/ResumeChallenge/12_5_IAAC_OAC&APIGateway.png)  
   
-
+>**Learning Point 3**  
+Adding on to **Learning Point 2**, some things might not workout as what you expect as compared to when you deployed via console. For example, I was wondering why CloudFront was delivering to me files to download when I accessing the website instead of the static webpage.  
+  
+![image](personalAssets/Images/Projects/ResumeChallenge/12_6_IAAC_S3FileType.png)  
+  
+>I investigated the issue by going into the S3 origin and click the **Open** button for the objects and realised the issue was from the objects being uploaded. After some research, I realised files being uploaded to S3 via Terraform must have the content type specified. Hence, I did a lookup for the file type while it was uploading and used it for the **content_type** argument.  
+  
+![image](personalAssets/Images/Projects/ResumeChallenge/12_7_IAAC_ContentTypeLookup.png)  
+  
+  
+  
+  
 Continue to [Part 3](https://c-kq.github.io/posts/CloudResumeChallenge-Part3/)...
 
 
